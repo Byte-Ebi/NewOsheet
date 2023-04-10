@@ -1,6 +1,7 @@
 package main
 
 import (
+	"NewOsheet/app/talents"
 	"NewOsheet/internal/cors"
 	"net/http"
 
@@ -12,6 +13,8 @@ func setupRouter() *gin.Engine {
 	r.Use(cors.Middleware())
 
 	r.GET("/hc", healthCheck)
+
+	talents.Routes(r)
 
 	return r
 }
